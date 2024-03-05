@@ -67,11 +67,12 @@ monthly_cancels = cancellations_df['cancel_date'].groupby(cancellations_df['canc
 df['start_month'] = df['start_date'].dt.strftime('%Y-%m')
 monthly_policy_numbers = df['policy_number'].groupby(df['start_month']).agg(list)
 monthy_policy_count = df['policy_number'].groupby(df['start_month']).agg('count')
-
+print("Policies starting each month:   ", monthly_policy_numbers)
+print("Number of policies starting each month:   ", monthy_policy_count)
 
 # Q4: Month on month growth rate
 monthly_sales_pct = monthly_sales.pct_change()
-
+print("Monthly change in sales pct:   ", monthly_sales_pct)
 
 # Q5: Total premiums collected for policies starting that month
 monthly_premiums = df['premium'].groupby(df['start_month']).agg('sum')
